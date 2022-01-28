@@ -35,8 +35,13 @@ const cart = [
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
+const summedPrice = cart.reduce((runningTotal, currPrice) => {
 
+    return runningTotal += currPrice.price;
+}, 0)
+
+
+console.log(summedPrice);
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -53,9 +58,17 @@ const cart = [
     decimals, for example: .06 for a 6% tax.
 */
 
-//CODE HERE
+const calcFinalPrice = (cartTotal, couponValue, tax) => {
 
+    cartTotal = (tax * cartTotal) + cartTotal;
 
+    cartTotal -= couponValue;
+
+    return cartTotal;
+
+}
+
+console.log(calcFinalPrice(26.97, 0, 0.08));
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -78,7 +91,15 @@ const cart = [
 */
 
 /*
-    TEXT ANSWER HERE
+    My customer object will have the following properties: customer's table number, customer's payment type, array of items ordered, and total cost for all items purchased. 
+
+    Customer ID is needed to keep track of where all orders come from. 
+
+    Items ordered keeps track of all items that were ordered by the customer. This helps calculate the total.
+
+    Payment type will determine if the restaurant needs more information from the customer. If they pay with cash, then no extra information is needed. If they pay with credit/debit, then their card informaiton is required.
+
+    Cart total shows how much the customer owes.
 
 */
 
@@ -87,4 +108,10 @@ const cart = [
     guidelines.
 */
 
-//CODE HERE
+const customer = {
+
+    customerId: 45,
+    paymentType: "Debit/Credit",
+    itemsOrdered: ["breadsticks", "pizza", "soda"],
+    cartTotal: 30.00
+}
