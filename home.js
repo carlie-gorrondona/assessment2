@@ -14,16 +14,16 @@
     It should have one parameter, `username`
     The function should return a string that says: 
     'Welcome back, [USERNAME]'
-    Where USERNAME is the `username` arguement sent in
+    Where USERNAME is the `username` argument sent in
 
     For example, if called with `Andrew` as the 
     argument, `greetUser` should return the string:
     'Welcome back, Andrew'
 */
 
-//CODE HERE
+const greetUser = username => console.log(`Welcome back, ${username}!`);
 
-
+greetUser("Carlie");
 
 
 
@@ -49,9 +49,9 @@
 
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
-//CODE HERE
+const canWeDeliver = zipCode => deliveryAreaZipCodes.includes(zipCode) ? `You are eligible for delivery.` : `You are not eligible for delivery.`;
 
-
+console.log(canWeDeliver(85207));
 
 /* 
     Problem 2 Continued
@@ -70,7 +70,21 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
     Name your new function `canWeDeliverTwo`.
 */
 
-// CODE HERE
+const canWeDeliverTwo = zipCodes => {
+
+    for (let i = 0; i < deliveryAreaZipCodes.length; i++) {
+
+        if (deliveryAreaZipCodes[i] === zipCodes) {
+
+            return `You are eligible for delivery!`;
+        }
+    }
+
+    return `Sorry. You are not eligible for delivery.`;
+}
+
+
+console.log(canWeDeliverTwo(85206));
 
 
 //////////////////PROBLEM 3////////////////////
@@ -106,7 +120,11 @@ const deals = [
     to replace the 15 with a 10.
 */
 
-//CODE HERE
+
+
+deals[0].title = deals[0].title.replace('15', '10');
+
+console.log(deals);
 
 
 
@@ -123,4 +141,7 @@ const deals = [
     to be displaying wrong on the live site.
 */
 
-//CODE HERE
+
+deals[1].desc = deals[1].desc.trim(" ").replace('March', 'April');
+
+console.log(deals);
